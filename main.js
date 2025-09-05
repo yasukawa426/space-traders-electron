@@ -3,7 +3,10 @@ const { app, BrowserWindow } = require("electron");
 // app module to control application life
 // BrowserWindow module to create and manage windows
 
-console.log("Hello, World! From Electron!");
+// enable live reload for all the files inside your project directory
+try {
+  require("electron-reloader")(module);
+} catch {}
 
 // create a new browser window with index.html
 const createWindow = () => {
