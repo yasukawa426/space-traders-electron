@@ -1,0 +1,42 @@
+############SHIP MANAGEMENT############
+
+#View my ships 
+GET https://api.spacetraders.io/v2/my/ships
+Authorization: Bearer {{AGENT_SAD_TOKEN}}
+
+###
+
+#View specific ship 
+GET https://api.spacetraders.io/v2/my/ships/{{initialShip}}
+Authorization: Bearer {{AGENT_SAD_TOKEN}}
+
+###
+
+#To move a ship, you first need to get it into orbit
+POST https://api.spacetraders.io/v2/my/ships/{{initialShip}}/orbit
+Authorization: Bearer {{AGENT_SAD_TOKEN}}
+
+###
+
+#To interact with a waypoint, you need to dock it
+POST https://api.spacetraders.io/v2/my/ships/{{initialShip}}/dock
+Authorization: Bearer {{AGENT_SAD_TOKEN}}
+
+###
+
+#When moving a ship, you need to have a flight mode set:
+#Moves super slowly, but uses the least fuel
+@slowSpeed = DRIFT
+#Moves at a normal speed, using a normal amount of fuel
+@normalSpeed = CRUISE
+#Moves very quickly, but uses a lot of fuel
+@fastSpeed = BURN
+#Move slowly while making it difficult to be detected, but uses a normal amount of fuel
+@stealthSpeed = STEALTH
+PATCH https://api.spacetraders.io/v2/my/ships/{{initialShip}}/nav 
+Content-Type: application/json
+Authorization: Bearer {{AGENT_SAD_TOKEN}}
+
+{
+    "flightMode": "{{normalSpeed}}"
+}

@@ -1,0 +1,12 @@
+# Get Contracts
+GET https://api.spacetraders.io/v2/my/contracts
+Authorization: Bearer {{AGENT_SAD_TOKEN}}
+
+###
+
+#Accepting a Contract
+# Replace the id with the actual contract ID you want to accept.
+POST https://api.spacetraders.io/v2/my/contracts/cmf7duzqa3laiui73rywaq21x/accept
+Authorization: Bearer {{AGENT_SAD_TOKEN}}
+
+###

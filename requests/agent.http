@@ -1,0 +1,4 @@
+###
+# Get Agent Info
+GET https://api.spacetraders.io/v2/my/agent
+Authorization: Bearer {{AGENT_SAD_TOKEN}}

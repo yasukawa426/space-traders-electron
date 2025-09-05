@@ -1,0 +1,14 @@
+# Get Initial Waypoint Info
+GET https://api.spacetraders.io/v2/systems/{{initialSystem}}/waypoints/{{initialWaypoint}}
+
+###
+
+#Look for a Shipyard waypoint in the initial system
+GET https://api.spacetraders.io/v2/systems/{{initialSystem}}/waypoints?traits=SHIPYARD
+
+###
+
+#View avaible ships at a shipyard - being at the waypoint or having a probe ship gives you more information on the ships available. It needs the agent token to get it.
+GET https://api.spacetraders.io/v2/systems/{{initialSystem}}/waypoints/X1-DK70-H48/shipyard
+Authorization: Bearer {{AGENT_SAD_TOKEN}}
+
